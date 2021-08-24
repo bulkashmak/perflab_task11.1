@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class MainTest {
 
     static Utility utility;
@@ -48,7 +51,10 @@ class MainTest {
     @Test
     void testHasNoSpaceAtTheEnd() {
 
-        Assertions.assertFalse(result.matches("\\s$"));
+        String regex = "\\S$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(result);
+        Assertions.assertTrue(matcher.find());
     }
 
     @Test

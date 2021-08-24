@@ -7,9 +7,11 @@ public class Utility {
 
     public String convert(int[] intArray) {
 
-        return Arrays.stream(intArray)
+        String result = Arrays.stream(intArray)
                 .mapToObj(String::valueOf)
                 .reduce( (o1, o2) -> o1.concat(" ").concat(o2))
                 .get();
+
+        return result;
     }
 }
